@@ -1,0 +1,34 @@
+#mainRegisterContainer {
+    height: 92vh;
+}
+
+#registerFormContainer {
+    margin: 0;
+    width: 100%;
+}
+
+#registerButton, .formInput, .formLabel {
+    font-size: 10px;
+}
+
+@media(min-width: 411px) {
+    #registerButton, .formInput, .formLabel {
+        font-size: 15px;
+    }
+}
+
+@media(min-width: 768px) {
+    #registerFormContainer {
+        margin: auto;
+        width: 50vw;
+    }
+    #registerButton, .formInput, .formLabel {
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 992px) {
+    #registerButton, .formInput, .formLabel {
+        font-size: 20px;
+    }
+}

@@ -76,10 +76,10 @@ namespace JobApplicationAPI.Controllers
             {
                 return NotFound(janf.Message);
             }
-            //catch (Exception)
-            //{
-            //    return StatusCode(500, "Internal server error occurred");
-            //}
+            catch (Exception)
+            {
+                return StatusCode(500, "Internal server error occurred");
+            }
         }
 
         [HttpDelete("{id}")]
