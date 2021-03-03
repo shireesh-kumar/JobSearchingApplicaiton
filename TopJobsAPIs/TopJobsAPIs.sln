@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopJobsAuthAPI", "TopJobsAu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobSeekersApi", "JobSeekersApi\JobSeekersApi.csproj", "{0BEB1C34-876C-4382-B77A-C49B051D5ABF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobPostingAPI", "JobPostingAPI\JobPostingAPI.csproj", "{D6D3F5CD-B507-48BC-B249-B608417C6758}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0BEB1C34-876C-4382-B77A-C49B051D5ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BEB1C34-876C-4382-B77A-C49B051D5ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BEB1C34-876C-4382-B77A-C49B051D5ABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D3F5CD-B507-48BC-B249-B608417C6758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D3F5CD-B507-48BC-B249-B608417C6758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D3F5CD-B507-48BC-B249-B608417C6758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D3F5CD-B507-48BC-B249-B608417C6758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
