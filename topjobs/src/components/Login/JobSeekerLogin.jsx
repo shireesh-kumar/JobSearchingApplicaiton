@@ -1,25 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import HomeHeader from './../Header/HomeHeader';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-export default function JobSeekerLogin() {
+export default function JobSeekerLogin(props) {
+    const [email, setEmail] = useState([''])
+    const [password, setPassword] = useState([''])
+
+    async function LoginHandler(e) {
+        e.preventDefault()
+
+        let statusCode
+        let loginResponse
+
+        await axios.post('http://localhost:59962/users/login', {
+            email: email,
+            password: password,
+            role: 1
+        }).then(async response => {
+            statusCode = response.status
+            loginResponse = await response.data
+        }).catch(async error => {
+            if (error.response) {
+                statusCode = await error.response.status
+            } else {
+                statusCode = await error.message
+            }
+        })
+
+        if (statusCode === 200) {
+            localStorage.setItem('topJobsToken', JSON.stringify(loginResponse.token))
+            localStorage.setItem('topJobsRole', JSON.stringify(1))
+            props.history.push("/JobSeekerDashboard")
+        }
+        else if (statusCode === 401) {
+            alert("Invalid username or password.")
+        }
+        else {
+            alert("Internal server error occured.")
+        }
+
+        setEmail('')
+        setPassword('')
+    }
+
     return (
         <div className="d-flex flex-column" id="mainLoginContainer">
             <HomeHeader title="TopJobs" />
             <div id="loginFormContainer" className="card shadow-lg align-self-center">
                 <div className="card-body" align="center">
-                    <form>
+                    <form onSubmit={LoginHandler}>
                         <div className="form-group text-left">
                             <label className="col-3 formLabel">Email</label>
-                            <input type="text" className="w-50 mt-4 formInput" placeholder="jobseeker@email.com" required />
+                            <input type="text" className="w-50 mt-4 formInput" placeholder="jobseeker@email.com"
+                                onChange={e => setEmail(e.target.value.toLowerCase())} value={email} required />
                         </div>
                         <div className="form-group">
                             <label className="col-3 formLabel">Password</label>
-                            <input type="password" className="w-50 mt-4 formInput" placeholder="password" required />
+                            <input type="password" className="w-50 mt-4 formInput" placeholder="password"
+                                onChange={e => setPassword(e.target.value)} value={password} required />
                         </div>
                         <div className="p-3">
                             <input id="loginButton" type="submit" value="Login" className="btn btn-dark" />
                         </div>
+                        <Link id="registerLink" to="/JobSeekerRegister"><p>Don't have an account? Register</p></Link>
                     </form>
                 </div>
             </div>

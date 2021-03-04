@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Register.css'
 import HomeHeader from './../Header/HomeHeader';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function JobSeekerRegister() {
     const [name, setName] = useState('')
@@ -96,6 +97,7 @@ export default function JobSeekerRegister() {
                         <div className="p-3">
                             <input id="registerButton" type="submit" value="Register" className="btn btn-dark" />
                         </div>
+                        <Link id="loginLink" to="/JobSeekerLogin"><p>Already have an account? Log in</p></Link>
                     </form>
                 </div>
             </div>

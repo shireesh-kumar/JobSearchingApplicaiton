@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Register.css'
 import HomeHeader from './../Header/HomeHeader';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function RecruiterRegister() {
     const [name, setName] = useState('')
@@ -98,6 +99,7 @@ export default function RecruiterRegister() {
                         <div className="p-3">
                             <input id="registerButton" type="submit" value="Register" className="btn btn-dark" />
                         </div>
+                        <Link id="loginLink" to="/RecruiterLogin"><p>Already have an account? Log in</p></Link>
                     </form>
                 </div>
             </div>

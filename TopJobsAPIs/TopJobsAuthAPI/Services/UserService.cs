@@ -20,13 +20,13 @@ namespace TopJobsAuthAPI.Services
 
         public bool LoginUser(User user)
         {
-            User _user = Users.Find(u => u.Email == user.Email && u.Password == user.Password).FirstOrDefault();
+            User _user = Users.Find(u => u.Email == user.Email && u.Password == user.Password && u.Role == user.Role).FirstOrDefault();
             if (_user != null)
             {
                 user.UserId = _user.UserId;
                 return true;
             }
-            throw new UserNotFoundException("Invalid email ID or password");
+            throw new UserNotFoundException("Invalid email ID, password or role");
         }
 
         public bool RegisterUser(User user)

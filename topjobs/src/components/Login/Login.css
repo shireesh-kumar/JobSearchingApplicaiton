@@ -3,7 +3,7 @@
     width: 100%;
 }
 
-#loginButton, .formInput, .formLabel {
+#loginButton, .formInput, .formLabel, #registerLink p {
     font-size: 10px;
 }
 
@@ -12,8 +12,8 @@
 }
 
 @media(min-width: 411px) {
-    #loginButton, .formInput, .formLabel {
-        font-size: 15px;
+    #loginButton, .formInput, .formLabel, #registerLink p {
+        font-size: 13px;
     }
 }
 
@@ -22,13 +22,13 @@
         margin: auto;
         width: 50vw;
     }
-    #loginButton, .formInput, .formLabel {
-        font-size: 16px;
+    #loginButton, .formInput, .formLabel, #registerLink p {
+        font-size: 15px;
     }
 }
 
 @media(min-width: 992px) {
     #loginButton, .formInput, .formLabel {
-        font-size: 20px;
+        font-size: 17px;
     }
 }

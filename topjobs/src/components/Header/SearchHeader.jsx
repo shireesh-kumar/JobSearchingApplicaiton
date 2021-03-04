@@ -3,6 +3,10 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 export default function SearchHeader(props) {
+    const LogoutHandler = () => {
+        localStorage.setItem('topJobsToken', JSON.stringify(null))
+    }
+
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark myheader" id="mainheader">
             <div className="container-fluid">
@@ -29,7 +33,7 @@ export default function SearchHeader(props) {
                     </div>
                     <ul className="navbar-nav me-3 mb-2 mb-lg-0 ml-auto">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Logout</Link>
+                            <Link to="/" onClick={LogoutHandler} className="nav-link">Logout</Link>
                         </li>
                     </ul>
                 </div>
