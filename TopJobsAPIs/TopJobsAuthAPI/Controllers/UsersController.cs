@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
@@ -20,13 +21,13 @@ namespace TopJobsAuthAPI.Controllers
             service = _service;
         }
 
-        [HttpPost, Route("register")]
+        [HttpPost, Route("register"), EnableCors("AllowOrigin")]
         public IActionResult Register([FromBody] User user)
         {
             try
             {
                 service.RegisterUser(user);
-                return StatusCode(201);
+                return StatusCode(201, "You have been registered successfully");
             }
             catch (UserAlreadyExistsException uae)
             {
@@ -38,7 +39,7 @@ namespace TopJobsAuthAPI.Controllers
             }
         }
 
-        [HttpPost, Route("login")]
+        [HttpPost, Route("login"), EnableCors("AllowOrigin")]
         public IActionResult Login([FromBody] User user)
         {
             try

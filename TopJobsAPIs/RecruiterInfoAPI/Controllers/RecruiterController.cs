@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RecruiterInfoAPI.Exceptions;
 using RecruiterInfoAPI.Models;
@@ -21,12 +22,14 @@ namespace RecruiterInfoAPI.Controllers
             serve = _serve;
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet]
         public IEnumerable<Recruiter> Get()
         {
             return serve.GetAllData();
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpPost]
         public IActionResult Post([FromBody] Recruiter recru)
         {
@@ -50,6 +53,7 @@ namespace RecruiterInfoAPI.Controllers
             }
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpPut("{id}")]
         public IActionResult Update([FromBody] Recruiter job, string id)
         {
@@ -75,6 +79,7 @@ namespace RecruiterInfoAPI.Controllers
             }
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet("{id}")]
         public IActionResult GetDataById(string id)
         {
@@ -93,6 +98,7 @@ namespace RecruiterInfoAPI.Controllers
 
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteById(string id)
         {

@@ -26,7 +26,16 @@ namespace RecruiterInfoAPI
             services.AddDbContext<IRecruiterContext, RecruiterContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RecruiterConnection")));
             services.AddScoped<IRecruiterRepository,RecruiterRepository>();
             services.AddScoped<IRecruiterService ,RecruiterService>();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
 
         }
 
@@ -39,6 +48,8 @@ namespace RecruiterInfoAPI
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 

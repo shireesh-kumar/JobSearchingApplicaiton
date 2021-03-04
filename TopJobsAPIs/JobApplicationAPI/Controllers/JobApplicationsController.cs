@@ -1,6 +1,7 @@
 ﻿using JobApplicationAPI.Exceptions;
 using JobApplicationAPI.Interfaces;
 using JobApplicationAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -16,7 +17,7 @@ namespace JobApplicationAPI.Controllers
             service = _service;
         }
 
-        [HttpGet]
+        [HttpGet, EnableCors("AllowOrigin")]
         public IActionResult Get()
         {
             try
@@ -29,7 +30,7 @@ namespace JobApplicationAPI.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Get(int id)
         {
             try
@@ -46,7 +47,7 @@ namespace JobApplicationAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost, EnableCors("AllowOrigin")]
         public IActionResult Post([FromBody] JobApplication application)
         {
             try
@@ -63,7 +64,7 @@ namespace JobApplicationAPI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Put(int id, [FromBody] JobApplication application)
         {
             try
@@ -82,7 +83,7 @@ namespace JobApplicationAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Delete(int id)
         {
             try

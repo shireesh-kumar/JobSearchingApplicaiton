@@ -26,6 +26,16 @@ namespace JobApplicationAPI
             services.AddDbContext<JobApplicationDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
             services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
             services.AddScoped<IJobApplicationService, JobApplicationService>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +47,8 @@ namespace JobApplicationAPI
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 

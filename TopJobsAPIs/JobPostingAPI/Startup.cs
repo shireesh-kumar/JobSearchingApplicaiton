@@ -26,7 +26,16 @@ namespace JobPostingAPI
             services.AddDbContext<IJobPostingContext, JobPostingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JobPostingConnectionString")));
             services.AddScoped<IJobPostingRepository, JobPostingRepository>();
             services.AddScoped<IJobPostingService, JobPostingService>();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
 
         }
 
@@ -39,6 +48,8 @@ namespace JobPostingAPI
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowOrigin");
 
             app.UseAuthorization();
 

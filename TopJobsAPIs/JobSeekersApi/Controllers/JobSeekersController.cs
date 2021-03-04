@@ -1,12 +1,11 @@
 ﻿using JobSeekersApi.Exceptions;
 using JobSeekersApi.Models;
 using JobSeekersApi.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace JobSeekersApi.Controllers
 {
@@ -20,14 +19,14 @@ namespace JobSeekersApi.Controllers
             service = _service;
         }
         // GET: api/<JobSeekerController>
-        [HttpGet]
+        [HttpGet, EnableCors("AllowOrigin")]
         public IEnumerable<JobSeekers> Get()
         {
             return service.GetJobSeeker();
         }
 
         // GET api/<JobSeekerController>/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Get(string id)
         {
             try
@@ -45,7 +44,7 @@ namespace JobSeekersApi.Controllers
         }
 
         // POST api/<JobSeekerController>
-        [HttpPost]
+        [HttpPost, EnableCors("AllowOrigin")]
         public IActionResult Post([FromBody] JobSeekers jobSeeker)
         {
             try
@@ -59,7 +58,7 @@ namespace JobSeekersApi.Controllers
         }
 
         // PUT api/<JobSeekerController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Put(string id, [FromBody] JobSeekers jobSeeker)
         {
             try
@@ -81,7 +80,7 @@ namespace JobSeekersApi.Controllers
         }
 
         // DELETE api/<JobSeekerController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), EnableCors("AllowOrigin")]
         public IActionResult Delete(string id)
         {
             try
