@@ -51,7 +51,10 @@ namespace JobSeekersApi.Repository
                 updatejobseeker.Percentage = jobSeeker.Percentage;
                 updatejobseeker.PrimarySkill = jobSeeker.PrimarySkill;
                 updatejobseeker.Qualification = jobSeeker.Qualification;
-                updatejobseeker.ResumeViews = jobSeeker.ResumeViews;
+                if (jobSeeker.ResumeViews != null)
+                {
+                    updatejobseeker.ResumeViews = jobSeeker.ResumeViews;
+                }
                 updatejobseeker.SecondarySkill = jobSeeker.SecondarySkill;
                 updatejobseeker.Summary = jobSeeker.Summary;
             }
