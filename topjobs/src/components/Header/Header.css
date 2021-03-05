@@ -2,3 +2,7 @@
     min-height: 12vh;
     width: 100%;
 }
+
+#dashboardCategories, #searchInput, #searchButton {
+    display: none;
+}

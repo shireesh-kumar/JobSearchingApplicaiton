@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeHeader from './../Header/HomeHeader';
+import ViewJobPosts from './../JobPostingComponent/ViewJobPosts';
 
 export default function Home() {
     return (
@@ -29,6 +30,9 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="p-4">
+                <ViewJobPosts loggedIn={0} />
             </div>
         </div>
     )

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './Login.css'
-import HomeHeader from './../Header/HomeHeader';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import SearchlessHeader from './../Header/SearchlessHeader';
 
 export default function RecruiterLogin(props) {
     const [email, setEmail] = useState([''])
@@ -47,7 +47,7 @@ export default function RecruiterLogin(props) {
 
     return (
         <div className="d-flex flex-column" id="mainLoginContainer">
-            <HomeHeader title="TopJobs" />
+            <SearchlessHeader title="TopJobs" />
             <div id="loginFormContainer" className="card shadow-lg align-self-center">
                 <div className="card-body" align="center">
                     <form onSubmit={LoginHandler}>
@@ -64,7 +64,8 @@ export default function RecruiterLogin(props) {
                         <div className="p-3">
                             <input id="loginButton" type="submit" value="Login" className="btn btn-dark" />
                         </div>
-                        <Link id="registerLink" to="/RecruiterRegister"><p>Don't have an account? Register</p></Link>
+                        <Link id="registerLink" to="/RecruiterRegister"><div>Don't have an account? Register</div></Link>
+                        <Link id="registerLink" to="/JobSeekerLogin"><div>Are you a job seeker? Login here</div></Link>
                     </form>
                 </div>
             </div>

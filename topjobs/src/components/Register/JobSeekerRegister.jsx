@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './Register.css'
-import HomeHeader from './../Header/HomeHeader';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import SearchlessHeader from './../Header/SearchlessHeader';
 
 export default function JobSeekerRegister() {
     const [name, setName] = useState('')
@@ -71,7 +71,7 @@ export default function JobSeekerRegister() {
 
     return (
         <div className="d-flex flex-column" id="mainRegisterContainer">
-            <HomeHeader title="TopJobs" />
+            <SearchlessHeader title="TopJobs" />
             <div id="registerFormContainer" className="card shadow-lg align-self-center">
                 <div className="card-body" align="center">
                     <form onSubmit={RegisterHandler}>
@@ -97,7 +97,8 @@ export default function JobSeekerRegister() {
                         <div className="p-3">
                             <input id="registerButton" type="submit" value="Register" className="btn btn-dark" />
                         </div>
-                        <Link id="loginLink" to="/JobSeekerLogin"><p>Already have an account? Log in</p></Link>
+                        <Link id="loginLink" to="/JobSeekerLogin"><div>Already have an account? Log in</div></Link>
+                        <Link id="loginLink" to="/RecruiterRegister"><div>Are you a recruiter? Register here</div></Link>
                     </form>
                 </div>
             </div>

@@ -46,17 +46,22 @@ namespace JobSeekersApi.Repository
             JobSeekers updatejobseeker = db.JobSeekers.ToList().FirstOrDefault(jobSeeker => jobSeeker.JsId == id);
             if (updatejobseeker != default(JobSeekers))
             {
-                updatejobseeker.Name = jobSeeker.Name;
-                updatejobseeker.Email = jobSeeker.Email;
+                if (jobSeeker.Name != null)
+                    updatejobseeker.Name = jobSeeker.Name;
+                if (jobSeeker.Email != null)
+                    updatejobseeker.Email = jobSeeker.Email;
+                if (jobSeeker.Summary != null)
+                    updatejobseeker.Summary = jobSeeker.Summary;
+                if (jobSeeker.Qualification != null)
+                    updatejobseeker.Qualification = jobSeeker.Qualification;
                 updatejobseeker.Percentage = jobSeeker.Percentage;
-                updatejobseeker.PrimarySkill = jobSeeker.PrimarySkill;
-                updatejobseeker.Qualification = jobSeeker.Qualification;
+                if (jobSeeker.PrimarySkill != null)
+                    updatejobseeker.PrimarySkill = jobSeeker.PrimarySkill;
+                if (jobSeeker.SecondarySkill != null)
+                    updatejobseeker.SecondarySkill = jobSeeker.SecondarySkill;
+                updatejobseeker.ExperienceYears = jobSeeker.ExperienceYears;
                 if (jobSeeker.ResumeViews != null)
-                {
                     updatejobseeker.ResumeViews = jobSeeker.ResumeViews;
-                }
-                updatejobseeker.SecondarySkill = jobSeeker.SecondarySkill;
-                updatejobseeker.Summary = jobSeeker.Summary;
             }
             db.SaveChanges();
             if (updatejobseeker == null)
