@@ -1,0 +1,8 @@
+npm install  react-toastify --save 
+
+{/* <RecruiterJobPosting/> */}
+    
+{/* <ViewRecruiterPostedJobs/> */}
+
+
+if possible in the index.css file add overflow-x : hidden 
