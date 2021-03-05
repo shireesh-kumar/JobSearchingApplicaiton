@@ -1,0 +1,9 @@
+.jobposts{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.display-job-cards{
+    
+}
